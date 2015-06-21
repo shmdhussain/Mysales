@@ -1,3 +1,24 @@
 			<!-- <ng-include src="'partials/header.html'"> </ng-include> -->
+<header class="home_head">
 
-			
+	<h1>
+		<span class="mybrand">MySales</span>
+	</h1>
+	<p>Hello <span ng-bind="user.username" class="username"></span> <span class="pipe">|</span> <a ng-click="logout()" href="javascript:void(0)">Logout</a></p>
+	<div class="hidden-xs clear"></div>
+</header>
+
+<section>
+	<p ng-show="mysupportmsg.toshow" ng-bind="mysupportmsg.message"></p>	
+</section>
+
+
+
+	
+<footer class="verticalCentreparent">
+	<div class="verticalCentreparentElem">
+		<a href="javascript:void(0)" ng-click="open('','partials/privacy.html','mystatic')">Privacy Policy</a>
+		<a href="javascript:void(0)" ng-click="open('','partials/terms.html','mystatic')">Terms of Use</a>
+		<a href="javascript:void(0)" ng-click="open('lg','partials/support.html','mysupport')">Support</a>
+	</div>
+</footer>

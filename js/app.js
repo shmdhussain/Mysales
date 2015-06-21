@@ -34,4 +34,8 @@
 	  //$locationProvider.hashPrefix('!');
 	});
 	
+	myApp.run(function($rootScope){
+		$rootScope.message = {'toshow':false,'message':'','class':''}; 
+	});
+	
 	

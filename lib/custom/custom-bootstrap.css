@@ -6535,41 +6535,6 @@ button.close {
 }
 /*my cus*/
 /*my cus*/
-html {
-  background-color: rgba(255, 255, 255, 0.5);
-  background: url(/images/supermarket.png) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-#login_cont {
-  width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background: white;
-  -moz-box-shadow: 0 0 20px #452632;
-  -webkit-box-shadow: 0 0 20px #452632;
-  box-shadow: 0 0 20px #452632;
-  font-family: "omnes-medium";
-}
-#login_cont form {
-  padding-top: 16px;
-}
-#login_cont label {
-  font-weight: normal;
-}
-#login_cont h1 {
-  padding-top: 5px;
-  margin-top: 0px;
-}
-#login_cont button {
-  margin-top: 30px;
-  outline: none;
-}
-body {
-  background-color: transparent;
-}
 @font-face {
   font-family: 'omnes-regular';
   src: url('/fonts/omnes-regular-webfont.eot');
@@ -6586,15 +6551,183 @@ body {
   /* IE9 Compat Modes */
   /* Legacy iOS */
 }
+html.coverBg {
+  background-color: rgba(255, 255, 255, 0.5);
+  background: url(/images/supermarket.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+  background-color: transparent;
+}
+#login_cont {
+  width: 258px;
+  margin: 50px auto;
+  padding: 15px;
+  background: white;
+  -moz-box-shadow: 0 0 20px #452632;
+  -webkit-box-shadow: 0 0 20px #452632;
+  box-shadow: 0 0 20px #452632;
+  font-family: "omnes-medium";
+}
+@media (min-width: 420px) {
+  #login_cont {
+    width: 400px;
+    padding: 20px;
+  }
+}
+#login_cont form {
+  padding-top: 16px;
+}
+#login_cont label {
+  font-weight: normal;
+}
+#login_cont h1 {
+  padding-top: 5px;
+  margin-top: 0px;
+}
+#login_cont button.btn-primary {
+  margin-top: 30px;
+  outline: none;
+}
+#login_cont button.reset-field {
+  right: 0px;
+}
+#login_cont .error {
+  color: #cf2a2a;
+}
+footer {
+  padding: 15px 0;
+  background-color: #333333;
+  font-family: "omnes-regular";
+}
+footer a {
+  display: block;
+  color: #fff;
+  padding-bottom: 20px;
+}
+footer a:first-child {
+  padding-top: 10px;
+}
+@media (min-width: 768px) {
+  footer a {
+    display: inline;
+    padding-right: 60px;
+    padding-bottom: 0;
+  }
+  footer a:first-child {
+    padding-top: 0;
+  }
+}
+footer a:focus,
+footer a:hover,
+footer a:active {
+  color: #fff;
+  outline: none;
+}
+.modal {
+  font-family: "omnes-regular";
+}
+.modal h2 {
+  font-size: 24px;
+  margin: 0;
+}
+.modal.mysupport p,
+.modal.mysupport textarea {
+  font-size: 16px;
+}
+.modal.mysupport .modal-footer {
+  padding: 15px 30px;
+}
+.modal.mysupport .modal-footer button {
+  padding: 6px 44px;
+}
+.modal.mysupport .modal-footer button:first-child {
+  float: left;
+}
+header.home_head {
+  background-color: #91204d;
+  padding-left: 0px;
+  min-height: 50px;
+  font-family: "omnes-regular";
+  color: #fff;
+}
+header.home_head h1 {
+  margin: 0;
+  text-align: center;
+}
+header.home_head p {
+  padding: 10px 0px;
+  border-top: 1px solid #fff;
+  margin: 10px 15px 0px;
+  text-align: center;
+  font-size: 16px;
+}
+header.home_head p a,
+header.home_head p a:focus,
+header.home_head p a:hover,
+header.home_head p a:active {
+  color: #fff;
+  outline: none;
+}
+header.home_head p .pipe {
+  padding: 0px 10px;
+}
+header.home_head p .username {
+  padding-left: 5px;
+}
+@media (min-width: 768px) {
+  header.home_head {
+    padding: 0 90px;
+  }
+  header.home_head h1 {
+    float: left;
+    text-align: left;
+  }
+  header.home_head p {
+    text-align: left;
+    margin: 0;
+    border-top: none;
+    padding: 0;
+    padding-top: 15px;
+    font-size: 16px;
+    float: right;
+  }
+}
 /*START: Utility Styles*/
 .clear {
   clear: both;
+}
+.verticalCentreparent {
+  text-align: center;
+  white-space: nowrap;
+}
+.verticalCentreparent:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.verticalCentreparentElem {
+  display: inline-block;
+  vertical-align: middle;
+}
+.rel {
+  position: relative;
+}
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
 }
 /*END: Utility Styles*/
 /*.animation (@name, @duration: 300ms, @delay: 0, @ease: ease,  @iteration-count:infinite, @direction: alternate);*/
 /*START: Usefull LESS Mixins*/
 /*END: Usefull LESS Mixins*/
-/*START:Sty;es for Delete X button*/
+/*START:Styles for Delete X button*/
 .reset-field {
   float: right;
   background: none;
@@ -6652,15 +6785,6 @@ input:focus + .reset-field {
   zoom: 1;
 }
 /*END:Styles for Delete X button*/
-.rel {
-  position: relative;
-}
-.nav,
-.pagination,
-.carousel,
-.panel-title a {
-  cursor: pointer;
-}
 .clearfix:before,
 .clearfix:after,
 .dl-horizontal dd:before,

@@ -1,9 +1,16 @@
 
 myApp.factory('userDataObj', function($http) {
-    var userDataObj={'sessionId':null,'loginSucceeded':false};
+    var userDataObj={'sessionId':null,'loginSucceeded':false,'username':null};
     return userDataObj;
 });
-myApp.factory('AuthenticationService', function($q, $http, $location,userDataObj) {
+myApp.factory('logoutReset', function(userDataObj) {
+	return function(){
+		userDataObj={'sessionId':null,'loginSucceeded':false,'username':null};
+		sessionStorage.setItem('sessionId', '');
+		sessionStorage.setItem('username', '');
+	}
+});
+myApp.factory('AuthenticationService', function($q, $http, $location,userDataObj,$rootScope,logoutReset) {
     return {
 		login:function(uid,pwd){
 			var url='http://localhost:8080/login?username='+uid+'&password='+pwd;
@@ -12,16 +19,18 @@ myApp.factory('AuthenticationService', function($q, $http, $location,userDataObj
 			$http.get(url).success(function(userdata){ 
 				console.log("user data: "+userdata);
 				// Authenticated 
-				userDataObj=userdata;
+				userDataObj={'sessionId':userdata.sessionId,'loginSucceeded':true,'username':uid};
 				b=userdata;
 				if (userdata.sessionId) {
 					console.log("user data success: "+userdata);
 					sessionStorage.setItem('sessionId', userdata.sessionId);
+					sessionStorage.setItem('username', uid);
+					$rootScope.message = {'toshow':false,'message':'','class':''}; 
 					$location.url('/home');
 				}
 				// Not Authenticated 
 				else {
-					//$rootScope.message = 'You need to log in.'; 
+					$rootScope.message = {'toshow':true,'message':'Credential is incorrect','class':'error'}; 
 					$location.url('/login'); 
 				} 
 			}); 
@@ -29,7 +38,7 @@ myApp.factory('AuthenticationService', function($q, $http, $location,userDataObj
 		checkLogin:function(){
 			var deferred = $q.defer(); 
 			if(sessionStorage.getItem('sessionId')){
-				userDataObj={'sessionId':sessionStorage.getItem('sessionId'),'loginSucceeded':true};
+				userDataObj={'sessionId':sessionStorage.getItem('sessionId'),'loginSucceeded':true,'username':sessionStorage.getItem('username')};
 				deferred.resolve(userDataObj);	
 				console.log("success");
 			}
@@ -39,6 +48,10 @@ myApp.factory('AuthenticationService', function($q, $http, $location,userDataObj
 				$location.url('/login'); 
 			}
 			return deferred.promise; 
+		},
+		logout:function(){
+			logoutReset();
+			$location.url('/login'); 
 		}
 	};
 });
