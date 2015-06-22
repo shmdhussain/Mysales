@@ -6,6 +6,9 @@ myApp.controller('parentCtrl',['$scope','$window','$location',function ($scope,$
 var a,b,c;
 myApp.controller("loginCtrl", ['$scope','AuthenticationService','$location','userDataObj', function($scope, AuthenticationService,$location,userDataObj) {
 	angular.element("html").addClass("coverBg");
+	modalreset();
+	jQuery(".modal-backdrop").remove();
+	jQuery(".modal").remove();
 	console.log("LoginCtrl");
 	$scope.login = function() {
 		AuthenticationService.login($scope.username,$scope.password);
@@ -81,13 +84,15 @@ myApp.controller("homeCtrl", ['$scope','AuthenticationService','userdata','$loca
 		});
 	};
 	
-	function modalreset(){
+	
+	
+}]);
+
+function modalreset(){
 		// jQuery("body").css({"position":"static","width":"","height":""});
 		// jQuery("html").css({"position":"static","overflow-y":""});
 		jQuery("body").removeAttr("style");
 		jQuery("html").removeAttr("style");
 		jQuery("html").removeClass("mychart");
-	}
-	
-}]);
-
+		
+}
