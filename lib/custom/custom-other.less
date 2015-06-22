@@ -138,7 +138,55 @@ header.home_head{
 	}
 }
 
+.homelink{
 
+	font-family:"omnes-medium";
+	h2{
+		font-size:28px;
+		margin:0;
+	}
+	margin:40px 90px 20px;
+	.container-fluid{
+		margin-top:15px;
+	}
+	.mybox{
+		min-height:200px;
+		cursor:pointer;
+		min-width:100px;
+		border:1px solid #c3c3c3;
+		.border-radiuses (@topright: 5px, @bottomright: 0, @bottomleft: 0, @topleft: 5px);
+		.box-shadow (0 0 5px #c3c3c3);
+		margin:20px;
+		h3{
+			margin:0px;
+			background-color:@myprimary;
+			min-height:30px;
+			color:#fff;
+			font-size:16px;
+			padding:10px 20px;
+			.chartbg{
+		
+			}
+		}
+		
+	}
+}
+
+.mychart{
+	.modal-footer{
+		text-align:center;
+	}
+	button{
+		display:block;
+		@media (min-width:@screen-sm){
+			display:inline-block;
+			width:45%;
+		}
+		&:first-child{margin-right:30px}
+	}
+	
+
+}
 /*START: Utility Styles*/
 .clear{clear:both}
 .verticalCentreparent{
