@@ -1,5 +1,5 @@
 	// Create a new module
-	var myApp = angular.module('myApp', ['ngRoute','ui.bootstrap']);
+	var myApp = angular.module('myApp', ['ngRoute','ui.bootstrap','chart.js']);
 	 
 	
 	

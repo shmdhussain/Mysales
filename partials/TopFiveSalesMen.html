@@ -1,0 +1,28 @@
+
+<div class="modal-header">
+	 <h2 id="myModalLabel">Top Five SalesMen</h2>
+</div>
+<div class="modal-body">
+	<div class="table-responsive">
+	  <table class="table">
+		<thead>
+          <tr>
+            <th>#</th>
+            <th>SalesMan Name</th>
+            <th>Sales Number</th>
+          </tr>
+        </thead>
+	    <tbody>
+          <tr ng-repeat="data in dataFromDB">
+            <td>{{$index}}</td>
+            <td>{{data[0]}</td>
+            <td>{{data[1]}}</td>
+          </tr>
+	     <tbody>
+	  </table>
+	</div>
+</div>
+<div class="modal-footer"> 
+	<button class="btn btn-alt" ng-click="$dismiss('cancel')">Close</button>
+	<button class="btn btn-primary" ng-click="$close('true')">Refresh</button>
+</div>

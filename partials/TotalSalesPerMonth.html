@@ -1,0 +1,14 @@
+
+<div class="modal-header">
+	 <h2 id="myModalLabel">Monthly Sales Report</h2>
+</div>
+<div class="modal-body">
+	<!-- <ul>
+		<li ng-repeat="data in dataFromDB">{{data[1]}}</li>
+	</ul>  -->
+	<canvas id="bar1" class="chart chart-bar" data="data" labels="labels" series="series"> </canvas>
+</div>
+<div class="modal-footer"> 
+	<button class="btn btn-alt" ng-click="$dismiss('cancel')">Close</button>
+	<button class="btn btn-primary" ng-click="$close('true')">Refresh</button>
+</div>

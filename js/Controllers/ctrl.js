@@ -17,7 +17,7 @@ myApp.controller("loginCtrl", ['$scope','AuthenticationService','$location','use
 	console.log("userdataPromise data: "+userDataObj);
 }]);
 
-myApp.controller("homeCtrl", ['$scope','AuthenticationService','userdata','$location','$modal','$log','$timeout', function($scope, AuthenticationService,userdata,$location,$modal,$log,$timeout) {
+myApp.controller("homeCtrl", ['$scope','AuthenticationService','userdata','$location','$modal','$log','$timeout','Salesdata', function($scope, AuthenticationService,userdata,$location,$modal,$log,$timeout,Salesdata) {
 	console.log("homeCtrl");
 	console.log("userdata: "+userdata.sessionId);
 	angular.element("html").removeClass("coverBg");
@@ -47,7 +47,7 @@ myApp.controller("homeCtrl", ['$scope','AuthenticationService','userdata','$loca
 	
 	//openchart
 	
-	$scope.openchart = function (modalURL,classforModal) {
+	$scope.openchart = function (type) {
 	
 		jQuery("body").css({"position":"fixed","width":"100%","height":"100%"});
 		jQuery("html").css({"position":"fixed","overflow-y":"hidden"});
@@ -59,15 +59,27 @@ myApp.controller("homeCtrl", ['$scope','AuthenticationService','userdata','$loca
 				fnModalScrollfix();
 		},100);
 		
+		
+		
 		var modalInstance = $modal.open({
 		  animation: true,
-		  templateUrl: 'partials/'+modalURL,
-		  windowClass:classforModal
+		  templateUrl: 'partials/'+type+'.html',
+		  controller: type+'Ctrl',
+		  resolve: {
+			data: function (Salesdata) {
+				var promiseExec;
+			    switch (type) {
+					case "TotalSalesPerMan": promiseExec= Salesdata.TotalSalesPerMan; break;
+					case "TotalSalesPerMonth":promiseExec= Salesdata.TotalSalesPerMonth; break;
+					case "TopFiveSalesOrder": promiseExec= Salesdata.TopFiveSalesOrder; break;
+					case "TopFiveSalesMan": promiseExec= Salesdata.TopFiveSalesMan; break;
+			   }
+			   return promiseExec();
+			}
+		  }
+		  
 		});
 		modalInstance.opened.then(function (result) {
-			
-			
-			
 		  
 		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
@@ -82,10 +94,8 @@ myApp.controller("homeCtrl", ['$scope','AuthenticationService','userdata','$loca
 			modalreset();
 		  $log.info('Modal dismissed at: ' + new Date());
 		});
+		console.log("chart end");
 	};
-	
-	
-	
 }]);
 
 function modalreset(){

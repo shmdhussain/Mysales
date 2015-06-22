@@ -6740,6 +6740,22 @@ header.home_head p .username {
   font-size: 16px;
   padding: 10px 20px;
 }
+.homelink .mybox .chbg {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.homelink .mybox .chartbg3,
+.homelink .mybox chartbg4 {
+  background: url('/images/list.png') no-repeat center center;
+}
+.homelink .mybox .chartbg1 {
+  background: url('/images/pie.png') no-repeat center center;
+}
+.homelink .mybox .chartbg2 {
+  background: url('/images/bar.png') no-repeat center center;
+}
 .mychart .modal-footer {
   text-align: center;
 }
