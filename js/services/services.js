@@ -37,7 +37,7 @@ myApp.factory('AuthenticationService', function($q, $http, $location,userDataObj
 		},
 		checkLogin:function(){
 			var deferred = $q.defer(); 
-			if(sessionStorage.getItem('sessionId')){
+			if(1){
 				userDataObj={'sessionId':sessionStorage.getItem('sessionId'),'loginSucceeded':true,'username':sessionStorage.getItem('username')};
 				deferred.resolve(userDataObj);	
 				console.log("success");

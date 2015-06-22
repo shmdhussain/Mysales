@@ -1,0 +1,21 @@
+
+
+<div class="modal-header">
+	<h2 id="myModalLabel" modal-title>Chart</h2>
+	<button type="button" class="close" aria-hidden="true" ng-click="cancel()">
+		<div class="hidden-spoken">Close modal window</div>
+	</button>
+</div>
+
+
+<div class="modal-body">
+	<div class="myChart">
+		<canvas id="line" class="chart chart-pie" data="data" labels="labels" ></canvas> 
+	</div>
+</div>
+
+
+<div class="modal-footer">
+	<button class="btn btn-alt" ng-click="$dismiss()">Cancel</button>
+	<button class="btn btn-primary" ng-click="$close()">OK</button>
+</div>
